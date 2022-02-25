@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+{% block title %}Blog - Diario de um dev | {%endblock%}
+
+{% block content %}   
+ <div class="container">
+      <h1 class="display-4 text-danger">Publication Detail</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Publication Title</th>
+            <td>{{publications.title}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Nivel do conteúdo</th>
+            <td>{{publications.content_level}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Link do conteúdo</th>
+            <td>{{publications.content_url}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Descrição</th>
+            <td>{{publications.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+{% endblock %}

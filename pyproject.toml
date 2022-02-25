@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "platform"
+version = "0.1.0"
+description = ""
+authors = ["VICTOR HUGO <victor.oliveira@willbank.com.br>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.74.1"
+pydantic = {extras = ["email"], version = "^1.9.0"}
+SQLAlchemy = "^1.4.31"
+python-dotenv = "^0.19.2"
+uvicorn = "^0.17.5"
+Jinja2 = "^3.0.3"
+psycopg2-binary = "^2.9.3"
+passlib = "^1.7.4"
+pytest = "^7.0.1"
+requests = "^2.27.1"
+python-multipart = "^0.0.5"
+flake8 = "^4.0.1"
+black = "^22.1.0"
+isort = "^5.10.1"
+jose = "^1.0.0"
+python-jose = "^3.3.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

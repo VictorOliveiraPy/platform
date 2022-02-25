@@ -1,0 +1,12 @@
+<div class="column is-3 product-list-item">
+    <div class="box">
+                <figure class="image is-4by3 mb-4"> </br>
+                    <img src='{{ content.get_thumbnail }}'>
+                </figure>
+
+                <h2 class="subtitle">{{ content.title }}</h2>
+
+                <hr>
+            <a href="{% url 'content' content.category.slug content.slug %}" class="button is-dark is-uppercase">Acessar</a>
+            </div>
+    </div>
