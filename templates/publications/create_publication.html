@@ -20,10 +20,12 @@
       <form method="POST">
         <div class="mb-3">
           <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Job Title here">
-        </div>
-           <div class="mb-3">
-          <input type="text" required class="form-control" name="level" value="{{content_level}}" placeholder="Content Level Here">
-        </div>
+          <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+                <option value="{{content_url}}">content_url.BEGINNER</option>
+                <option value="2">Two</option>
+                 <option value="3">Three</option>
+              </select>
         <div class="mb-3">
           <input type="text" required placeholder="Content post URL e.g. https://www.python.org/jobs/5309/" name="content_url" value="{{content_url}}" class="form-control">
         </div>

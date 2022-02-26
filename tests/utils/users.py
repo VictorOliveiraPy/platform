@@ -5,7 +5,7 @@ from _pytest.tmpdir import get_user
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from src.core.repository.sqlalchemy.users.users import create_new_user
+from src.core.repository.sqlalchemy.users.users import SqlAlchemyPublicationRepositoryUsers
 from src.core.schemas.users import UserCreate
 
 
@@ -17,7 +17,7 @@ def create_random_owner(db: Session):
     email: str = f"{random_lower_string()}@{random_lower_string()}.com"
     password: str = random_lower_string()
     user_schema: UserCreate = UserCreate(username=email, email=email, password=password)
-    user = create_new_user(user=user_schema, db=db)
+    user = SqlAlchemyPublicationRepositoryUsers().post(user=user_schema, db=db)
     return user
 
 

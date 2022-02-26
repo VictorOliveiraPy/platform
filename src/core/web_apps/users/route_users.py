@@ -3,7 +3,7 @@ from sqlalchemy.exc import IntegrityError
 
 from config.config import templates
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.users import create_new_user
+from src.core.repository.sqlalchemy.users.users import SqlAlchemyPublicationRepositoryUsers
 from src.core.schemas.users import UserCreate
 from src.core.web_apps.users.forms import UserCreateForm
 
@@ -19,18 +19,15 @@ def register(request: Request):
 async def register(request: Request):
     with SessionMakerWrapper() as session:
         form = UserCreateForm(request)
-
         await form.load_data()
+
         if await form.is_valid():
-            user = UserCreate(
-                username=form.username, email=form.email, password=form.password
-            )
+            user = UserCreate(username=form.username, email=form.email, password=form.password)
             try:
-                user = create_new_user(user=user, db=session)
-                return responses.RedirectResponse(
-                    "/?msg=Succesfully-Registered", status_code=status.HTTP_302_FOUND
-                )
+                user = SqlAlchemyPublicationRepositoryUsers(session).post(user=user)
+                return responses.RedirectResponse("/?msg=Succesfully-Registered", status_code=status.HTTP_302_FOUND)
             except IntegrityError:
                 form.__dict__.get("errors").append("Duplicate username or email")
                 return templates.TemplateResponse("users/register.html", form.__dict__)
         return templates.TemplateResponse("users/register.html", form.__dict__)
+

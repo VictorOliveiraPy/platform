@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
+from src.core.web_apps.auth import route_login
 from src.core.web_apps.publication import route_publications
 from src.core.web_apps.users import route_users
-from src.core.web_apps.auth import route_login
 
 api_router = APIRouter()
 

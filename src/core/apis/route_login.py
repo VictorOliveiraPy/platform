@@ -1,17 +1,15 @@
 from datetime import timedelta
 
-from fastapi import APIRouter
-from fastapi import Depends, HTTPException, status
-from fastapi import Response
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from fastapi.security import OAuth2PasswordRequestForm
-from jose import jwt, JWTError
+from jose import JWTError, jwt
 
 from config.config import settings
 from config.hashing import Hasher
-from config.security import create_access_token
 from src.core.apis.utils import OAuth2PasswordBearerWithCookie
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.login import SqlAlchemyPublicationRepository
+from src.core.repository.sqlalchemy.users.login import \
+    SqlAlchemyPublicationRepository
 
 router = APIRouter()
 

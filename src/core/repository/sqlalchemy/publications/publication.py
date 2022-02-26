@@ -1,7 +1,8 @@
 from sqlalchemy.orm import Session
 
 from src.core.repository.models.publication import Publication
-from src.core.repository.sqlalchemy.publications.abstract import AbstractRepository
+from src.core.repository.sqlalchemy.publications.abstract import \
+    AbstractRepository
 from src.core.schemas.publications import PublicationCreate
 
 
@@ -19,11 +20,11 @@ class SqlAlchemyPublicationRepository(AbstractRepository):
     def get(self) -> Publication:
         return self.session.query(Publication).filter(Publication.is_active == True).all()
 
-    def post(self, publication: PublicationCreate, owner_id):
+    def post(self, publication: PublicationCreate, owner_id) -> PublicationCreate:
         publication = Publication(**publication.dict(), owner_id=owner_id)
         self.session.add(publication)
         self.session.commit()
-        self.refresh(publication)
+        self.session.refresh(publication)
         return publication
 
 

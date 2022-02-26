@@ -12,13 +12,12 @@ class ContentLevel(str, enum.Enum):
 
 
 class PublicationBase(BaseModel):
-    title: Optional[str] = None
-    content_url: Optional[str] = None
-    description: Optional[str] = None
+    title: str
+    content_url: str
+    description: str
     date_posted: Optional[str] = datetime.now().date()
     content_level: ContentLevel
 
 
 class PublicationCreate(PublicationBase):
     pass
-

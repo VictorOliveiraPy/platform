@@ -1,12 +1,12 @@
-from fastapi import Request
-from typing import Optional
+from typing import List, Optional
 
-from typing import List
+from fastapi import Depends, Request
+from fastapi.security import OAuth2PasswordRequestForm
 
 
 class LoginForm:
-    def __init__(self, request: Request):
-        self.request: Request = request
+    def __init__(self, data: OAuth2PasswordRequestForm = Depends()):
+        self.data = data
         self.errors: List = []
         self.username: str = None
         self.password: str = None
