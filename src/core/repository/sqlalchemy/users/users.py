@@ -2,7 +2,8 @@ from abc import ABC
 
 from config.hashing import Hasher
 from src.core.repository.models.users import User
-from src.core.repository.sqlalchemy.users.abstract import AbstractRepositoryUser
+from src.core.repository.sqlalchemy.users.abstract import \
+    AbstractRepositoryUser
 from src.core.schemas.users import UserCreate
 
 

@@ -5,8 +5,8 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 
 class LoginForm:
-    def __init__(self, data: OAuth2PasswordRequestForm = Depends()):
-        self.data = data
+    def __init__(self, request: OAuth2PasswordRequestForm = Depends()):
+        self.request: Request = request
         self.errors: List = []
         self.username: str = None
         self.password: str = None

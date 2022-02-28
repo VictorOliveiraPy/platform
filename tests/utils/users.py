@@ -5,7 +5,8 @@ from _pytest.tmpdir import get_user
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from src.core.repository.sqlalchemy.users.users import SqlAlchemyPublicationRepositoryUsers
+from src.core.repository.sqlalchemy.users.users import \
+    SqlAlchemyPublicationRepositoryUsers
 from src.core.schemas.users import UserCreate
 
 

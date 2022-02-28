@@ -11,3 +11,4 @@ class AbstractRepositoryUser(abc.ABC):
     @abc.abstractmethod
     def post(self):
         pass
+

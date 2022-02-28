@@ -3,7 +3,8 @@ from sqlalchemy.exc import IntegrityError
 
 from config.config import templates
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.users import SqlAlchemyPublicationRepositoryUsers
+from src.core.repository.sqlalchemy.users.users import \
+    SqlAlchemyPublicationRepositoryUsers
 from src.core.schemas.users import UserCreate
 from src.core.web_apps.users.forms import UserCreateForm
 
