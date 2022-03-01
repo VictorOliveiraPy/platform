@@ -14,3 +14,7 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get(self):
         pass
+
+    @abc.abstractmethod
+    def searc(self, query: str):
+        pass

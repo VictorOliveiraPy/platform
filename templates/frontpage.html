@@ -1,22 +1,26 @@
 {% extends "shared/layout.html" %}
-{% block title %}Blog - Diario de um dev | {%endblock%}
 
-{% block content %}   
+{% block title %}
+  <title>Mundo Pythonico</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<br><br>
   <div class="row">
-    {% for publication in publications %}
+    {% for p in publications %}
       <div class="col-lg-4 col-md-3 col-sm-10 mr-auto">
-        {% with obj=publication %}
-          {% include "/components/card.html" %}
+        {% with obj=p %}
+          {% include "components/card.html" %}
         {% endwith %}
 
         {% if loop.index %3 %}
           </div>
         {% else %}
-          </div>
-<br>
-<div class="row">
+          </div></div><br><div class="row">
         {% endif %}
     {% endfor %}
   </div>
+</div>
 
-{%endblock%}
+{% endblock %}

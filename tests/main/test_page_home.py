@@ -12,5 +12,4 @@ def client():
 class TestHomePage:
     def test_return_status_code_200(self, client):
         response = client.get("/")
-
         assert response.status_code == 200

@@ -1,3 +1,5 @@
+from abc import ABC
+
 from sqlalchemy.orm import Session
 
 from src.core.repository.models.publication import Publication
@@ -6,9 +8,12 @@ from src.core.repository.sqlalchemy.publications.abstract import \
 from src.core.schemas.publications import PublicationCreate
 
 
-class SqlAlchemyPublicationRepository(AbstractRepository):
+class SqlAlchemyPublicationRepository(AbstractRepository, ABC):
     def __init__(self, session):
         self.session = session
+
+    def searc(self, query: str):
+        return self.session.query(Publication).filter(Publication.title.contains(query))
 
     def get_by_id(self, id_publication) -> Publication:
         return (

@@ -1,4 +1,4 @@
-{% extends "shared/base.html" %}
+{% extends "shared/layout.html" %}
  
  
 {% block title %}
@@ -19,13 +19,7 @@
       <h3 class="text-center display-4">Create a Publication Post</h3>
       <form method="POST">
         <div class="mb-3">
-          <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Job Title here">
-          <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-                <option value="{{content_url}}">content_url.BEGINNER</option>
-                <option value="2">Two</option>
-                 <option value="3">Three</option>
-              </select>
+          <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Titulo da Publicacao">
         <div class="mb-3">
           <input type="text" required placeholder="Content post URL e.g. https://www.python.org/jobs/5309/" name="content_url" value="{{content_url}}" class="form-control">
         </div>

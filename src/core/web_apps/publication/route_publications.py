@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Request, responses, status
 from fastapi.responses import HTMLResponse
 from fastapi.security.utils import get_authorization_scheme_param
@@ -76,3 +78,12 @@ def show_publication_to_delete(request: Request):
                 "publications": publication
             }
         )
+
+
+@router.get("/search/")
+def search(request: Request, query: Optional[str] = None):
+    with SessionMakerWrapper() as session:
+        repository = SqlAlchemyPublicationRepository(session)
+        publication = repository.searc(query)
+
+        return templates.TemplateResponse('frontpage.html', {"request": request, "publications": publication})

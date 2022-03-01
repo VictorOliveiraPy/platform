@@ -1,16 +1,17 @@
 from datetime import datetime, timedelta
 from typing import Optional
 
-from fastapi import Depends
+from fastapi import (APIRouter, Depends, Form, HTTPException, Request,
+                     Response, status)
 from fastapi.security import OAuth2PasswordRequestForm
 from jose import jwt
-from fastapi import Depends, HTTPException, status, APIRouter, Request, Response, Form
 
 from config.config import settings
 from config.hashing import Hasher
 from src.core.apis.route_login import router
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.login import SqlAlchemyPublicationRepository
+from src.core.repository.sqlalchemy.users.login import \
+    SqlAlchemyPublicationRepository
 
 
 @router.post("/token")
