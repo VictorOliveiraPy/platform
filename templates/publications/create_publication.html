@@ -21,7 +21,14 @@
         <div class="mb-3">
           <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Titulo da Publicacao">
         <div class="mb-3">
-          <input type="text" required placeholder="Content post URL e.g. https://www.python.org/jobs/5309/" name="content_url" value="{{content_url}}" class="form-control">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Nivel do conteudo</option>
+                {% for p in content %}
+                <option value="{{p.value}}">{{p.name}}</option>
+                {% endfor %}
+            </select>
+
+          <input type="text" required placeholder="Content post URL e.g. https://www.python.org/mundo-pythonico/" name="content_url" value="{{content_url}}" class="form-control">
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>

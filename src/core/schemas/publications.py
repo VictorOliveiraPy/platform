@@ -1,14 +1,15 @@
-import enum
 from datetime import datetime
+from enum import auto
 from typing import Optional
 
+from fastapi_utils.enums import StrEnum
 from pydantic import BaseModel
 
 
-class ContentLevel(str, enum.Enum):
-    BEGINNER = "BEGINNER"
-    INTERMEDIARY = "INTERMEDIARY"
-    ADVANCING = "ADVANCING"
+class ContentLevel(StrEnum):
+    INICIANTE = auto()
+    INTERMEDIARIO = auto()
+    AVANCADO = auto()
 
 
 class PublicationBase(BaseModel):
@@ -20,4 +21,5 @@ class PublicationBase(BaseModel):
 
 
 class PublicationCreate(PublicationBase):
+    content_level: str
     pass

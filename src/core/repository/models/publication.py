@@ -1,14 +1,16 @@
 import enum
+from enum import auto
 
+from fastapi_utils.enums import StrEnum
 from sqlalchemy import Boolean, Column, Date, Enum, ForeignKey, Integer, String
 
 from src.core.repository.sqlalchemy.base_class import Base
 
 
-class ContentLevel(str, enum.Enum):
-    BEGINNER = "BEGINNER"
-    INTERMEDIARY = "INTERMEDIARY"
-    ADVANCING = "ADVANCING"
+class ContentLevel(StrEnum):
+    INICIANTE = auto()
+    INTERMEDIARIO = auto()
+    AVANCADO = auto()
 
 
 class Publication(Base):

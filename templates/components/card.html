@@ -1,8 +1,9 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{obj.title}}</h5>
-      <p class="card-text">Nivel do conteúdo : {{obj.content_level}}</p>
-      <p class="card-text">Link do conteúdo : {{obj.content_url}}</p>
+      <p class="card-text">Nivel do conteúdo : {{obj.content_level.value}}</p>
+        <a href="{{obj.description}}">Link do conteúdo</a>
+
         <p class="card-text">Descrição : {{obj.description}}</p>
 
       <a href="/detail/{{obj.id}}" class="btn btn-primary">Acessar</a>

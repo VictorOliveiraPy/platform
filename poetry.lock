@@ -247,6 +247,19 @@ passlib = "*"
 pyjwt = "*"
 
 [[package]]
+name = "fastapi-utils"
+version = "0.2.1"
+description = "Reusable utilities for FastAPI"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+fastapi = "*"
+pydantic = ">=1.0,<2.0"
+sqlalchemy = ">=1.3.12,<2.0.0"
+
+[[package]]
 name = "flake8"
 version = "4.0.1"
 description = "the modular source code checker: pep8 pyflakes and co"
@@ -768,7 +781,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "5d6fa9c34c02529ffa515e8fc9df5acc71832c08fc2914394b5d319673b44e8d"
+content-hash = "693b45d2ef10886ca0ae31668f15460888be181df9a56b2313c962729aac0320"
 
 [metadata.files]
 anyio = [
@@ -891,6 +904,10 @@ fastapi-jwt-auth = [
 fastapi-login = [
     {file = "fastapi-login-1.7.3.tar.gz", hash = "sha256:8413ecad04d255c451e8ab28e692c579c79c7561ce9af70795abe54705d50441"},
     {file = "fastapi_login-1.7.3-py3-none-any.whl", hash = "sha256:584809c2b03b3bd0d5a4ca0cc5b7bb65f64dce91bd1a11bef1f09832d7093055"},
+]
+fastapi-utils = [
+    {file = "fastapi-utils-0.2.1.tar.gz", hash = "sha256:0e6c7fc1870b80e681494957abf65d4f4f42f4c7f70005918e9181b22f1bd759"},
+    {file = "fastapi_utils-0.2.1-py3-none-any.whl", hash = "sha256:dd0be7dc7f03fa681b25487a206651d99f2330d5a567fb8ab6cb5f8a06a29360"},
 ]
 flake8 = [
     {file = "flake8-4.0.1-py2.py3-none-any.whl", hash = "sha256:479b1304f72536a55948cb40a32dce8bb0ffe3501e26eaf292c7e60eb5e0428d"},

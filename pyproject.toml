@@ -27,6 +27,7 @@ auth = "^0.5.3"
 python-oauth2 = "^1.1.1"
 PyJWT = "1.7.1"
 python-jose = "^3.3.0"
+fastapi-utils = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 

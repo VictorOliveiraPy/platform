@@ -1,7 +1,5 @@
-from fastapi import Request
-from fastapi.responses import HTMLResponse
-
-from config.config import app, templates
+from config.config import app
+from src.core.apis.base import api_router as api
 from src.core.repository.sqlalchemy.base_class import Base
 from src.core.repository.sqlalchemy.session import engine
 from src.core.web_apps.base import api_router
@@ -12,6 +10,7 @@ def create_tables():
 
 
 def include_router(app):
+    app.include_router(api)
     app.include_router(api_router)
 
 

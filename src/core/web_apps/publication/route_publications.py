@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException, Request, responses, status
+from fastapi import APIRouter, HTTPException, Request, status
 from fastapi.responses import HTMLResponse
 from fastapi.security.utils import get_authorization_scheme_param
 
@@ -10,7 +10,7 @@ from src.core.repository.models.users import User
 from src.core.repository.sqlalchemy.publications.publication import \
     SqlAlchemyPublicationRepository
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.schemas.publications import PublicationCreate
+from src.core.schemas.publications import ContentLevel, PublicationCreate
 from src.core.web_apps.publication.forms import PublicationCreateForm
 
 router = APIRouter()
@@ -29,7 +29,7 @@ def home_page(request: Request, msg: str = None):
 
 @router.get("/create_publication/")
 def create_publication(request: Request):
-    return templates.TemplateResponse("publications/create_publication.html", {"request": request})
+    return templates.TemplateResponse("publications/create_publication.html", {"request": request, "content": ContentLevel})
 
 
 @router.post("/create_publication/")
@@ -39,14 +39,25 @@ async def create_publication(request: Request):
         await form.load_data()
 
         if form.is_valid():
-            publication = PublicationCreate(**form.__dict__)
-            repository = SqlAlchemyPublicationRepository(session)
+            try:
+                token = request.cookies.get("access_token")
+                scheme, param = get_authorization_scheme_param(
+                    token
+                )  # scheme will hold "Bearer" and param will hold actual token value
+                current_user: User = get_current_user_from_token(token=param)
 
-            publication = repository.post(publication=publication)
+                publication = PublicationCreate(**form.__dict__)
+                repository = SqlAlchemyPublicationRepository(session)
 
-            return responses.RedirectResponse(
-                f"/detail/{publication.id}", status_code=status.HTTP_302_FOUND
-            )
+                publication = repository.post(publication=publication, owner_id=current_user.id)
+
+            except Exception as e:
+                print(e)
+                form.__dict__.get("errors").append(
+                    "You might not be logged in, In case problem persists please contact us."
+                )
+
+                return templates.TemplateResponse("publications/create_publication.html", form.__dict__)
         return templates.TemplateResponse("publications/create_publication.html", form.__dict__)
 
 
@@ -87,3 +98,13 @@ def search(request: Request, query: Optional[str] = None):
         publication = repository.searc(query)
 
         return templates.TemplateResponse('frontpage.html', {"request": request, "publications": publication})
+
+
+@router.get("/autocomplete")
+def autocomplete(term: Optional[str] = None):
+    with SessionMakerWrapper() as session:
+        repository = SqlAlchemyPublicationRepository(session)
+        publication = repository.searc(term)
+        publication_titles = [publi for publi in publication]
+
+        return publication_titles
