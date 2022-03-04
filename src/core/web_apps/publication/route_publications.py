@@ -6,11 +6,12 @@ from fastapi.security.utils import get_authorization_scheme_param
 
 from config.config import templates
 from src.core.apis.route_login import get_current_user_from_token
+from src.core.repository.models.publication import ContentLevel
 from src.core.repository.models.users import User
 from src.core.repository.sqlalchemy.publications.publication import \
     SqlAlchemyPublicationRepository
 from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.schemas.publications import ContentLevel, PublicationCreate
+from src.core.schemas.publications import PublicationCreate
 from src.core.web_apps.publication.forms import PublicationCreateForm
 
 router = APIRouter()
@@ -33,12 +34,13 @@ def create_publication(request: Request):
 
 
 @router.post("/create_publication/")
-async def create_publication(request: Request):
+async def create_publication(request: Request) -> 201:
     with SessionMakerWrapper() as session:
         form = PublicationCreateForm(request)
         await form.load_data()
 
         if form.is_valid():
+
             try:
                 token = request.cookies.get("access_token")
                 scheme, param = get_authorization_scheme_param(
@@ -57,7 +59,7 @@ async def create_publication(request: Request):
                     "You might not be logged in, In case problem persists please contact us."
                 )
 
-                return templates.TemplateResponse("publications/create_publication.html", form.__dict__)
+                return templates.TemplateResponse("publications/create_publication.html", form.__dict__, status_code=201)
         return templates.TemplateResponse("publications/create_publication.html", form.__dict__)
 
 

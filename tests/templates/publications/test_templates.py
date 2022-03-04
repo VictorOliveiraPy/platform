@@ -1,6 +1,3 @@
-import pytest
-
-
 class TestPublicationGetTemplates:
 
     def test_get_front_page(self, client):
@@ -13,7 +10,6 @@ class TestPublicationGetTemplates:
 
         assert templates_result.template.filename == "templates/publications/create_publication.html"
 
-    @pytest.skip()
     def test_get_detail_publication(self, client):
         templates_result = client.get("/detail/1/")
 

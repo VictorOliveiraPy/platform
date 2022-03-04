@@ -21,10 +21,10 @@
         <div class="mb-3">
           <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Titulo da Publicacao">
         <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="content_level">
                 <option selected>Nivel do conteudo</option>
                 {% for p in content %}
-                <option value="{{p.value}}">{{p.name}}</option>
+                <option value="{{p.value}}">{{p.name}}-{{p.value}}--{{p.content_level}}</option>
                 {% endfor %}
             </select>
 

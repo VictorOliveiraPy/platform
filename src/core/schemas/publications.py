@@ -21,5 +21,4 @@ class PublicationBase(BaseModel):
 
 
 class PublicationCreate(PublicationBase):
-    content_level: str
     pass

@@ -30,5 +30,5 @@ async def register(request: Request):
             except IntegrityError:
                 form.__dict__.get("errors").append("Duplicate username or email")
                 return templates.TemplateResponse("users/register.html", form.__dict__)
-        return templates.TemplateResponse("users/register.html", form.__dict__)
+        return templates.TemplateResponse("users/register.html", form.__dict__, status_code=201)
 

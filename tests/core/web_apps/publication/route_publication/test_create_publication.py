@@ -1,5 +1,5 @@
 class TestCreatePublication:
-    def test_create_publication(self, client):
+    def test_create(self, client):
         payload = {
             "title": "testando isso aqui",
             "content_url": "https://www.youtube.com/watch?v=qS1nP5oDjQY&list=RDhKQVzVdvq2E&index=6&ab_channel=L7NNON",
@@ -8,4 +8,5 @@ class TestCreatePublication:
         }
 
         result = client.post("/create_publication/", data=payload)
-        assert result.status_code == 200
+
+        assert result.status_code == 201

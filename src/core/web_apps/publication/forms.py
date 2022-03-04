@@ -1,8 +1,7 @@
 from typing import List, Optional
 
 from fastapi import Request
-
-from src.core.repository.models.publication import ContentLevel
+from fastapi_utils.enums import StrEnum
 
 
 class PublicationCreateForm:
@@ -11,7 +10,8 @@ class PublicationCreateForm:
         self.errors: List = []
         self.title: Optional[str] = None
         self.content_url: Optional[str] = None
-        self.content_level = ContentLevel
+        self.content_level: StrEnum = None
+
         self.description: Optional[str] = None
 
     async def load_data(self):
