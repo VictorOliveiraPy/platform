@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List
 
 from fastapi import Depends, Request
 from fastapi.security import OAuth2PasswordRequestForm

@@ -2,10 +2,8 @@
     <div class="card-body">
       <h5 class="card-title">{{obj.title}}</h5>
       <p class="card-text">Nivel do conteúdo : {{obj.content_level.value}}</p>
-        <a href="{{obj.description}}">Link do conteúdo</a>
-
         <p class="card-text">Descrição : {{obj.description}}</p>
 
-      <a href="/detail/{{obj.id}}" class="btn btn-primary">Acessar</a>
+      <a href="{{obj.content_url}}" class="btn btn-primary">Link do conteúdo</a>
     </div>
   </div>

@@ -59,7 +59,7 @@ async def create_publication(request: Request) -> 201:
                     "You might not be logged in, In case problem persists please contact us."
                 )
 
-                return templates.TemplateResponse("publications/create_publication.html", form.__dict__, status_code=201)
+                return templates.TemplateResponse("frontpage.html", form.__dict__, status_code=201)
         return templates.TemplateResponse("publications/create_publication.html", form.__dict__)
 
 

@@ -1,9 +1,3 @@
-import pytest
-from starlette.testclient import TestClient
-
-from config.config import app
-
-
 class TestCreateUserForm:
     def test_create_user(self, client):
         payload = {

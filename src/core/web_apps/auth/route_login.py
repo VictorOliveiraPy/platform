@@ -25,8 +25,10 @@ async def login(request: Request):
                 response = templates.TemplateResponse("auth/login.html", form.__dict__)
                 login_for_access_token(response=response, form_data=form)
                 return response
+
             except HTTPException:
                 form.__dict__.update(msg="")
                 form.__dict__.get("errors").append("Incorrect email or password")
+
                 return templates.TemplateResponse("auth/login.html", form.__dict__)
         return templates.TemplateResponse("auth/login.html", form.__dict__)
