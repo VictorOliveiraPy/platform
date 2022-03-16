@@ -1,40 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid px-5">
-      <a class="navbar-brand" href="#">
-        <img src="static/img/hero-bg.jpg" alt="Python navbar image" width="30" height="24">
-
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Acounts
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/register/">Register</a></li>
-              <li><a class="dropdown-item" href="/login/">Login</a></li>
-              <li><hr class="dropdown-divider"></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Publicações
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/create_publication/">Posta Publicacao</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" action="/search/">
-            <input class = "form-control me-2" name = "query" id = "autocomplete" type = "search" placeholder = "Search" aria-label = "Search" >
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Pythonic World</h1>
+      <br><br>
+      <p>I'm a <span class="typed" data-typed-items="Backend Developer, Pythonista, Diário de um dev"></span></p>
+      <div class="social-links">
+        <a href="https://github.com/VictorOliveiraPy" class="Github"><i class="bx bxl-github"></i></a>
+        <a href="https://www.instagram.com/nascimento_victorhugo/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/victor-hugo-3548a915a/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <form method="get" action="">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input type="text" class="input" placeholder="Search..." name="query">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-dark is-uppercase">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                   </div>
+              </div>
+        </div>
+  </section><!-- End Hero -->
