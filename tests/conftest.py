@@ -8,9 +8,9 @@ from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 
 from config.config import settings
-from src.core.repository.sqlalchemy.base_class import Base
-from src.core.repository.sqlalchemy.session import get_db
-from src.core.web_apps.base import api_router
+from src.services.repository.sqlalchemy.base_class import Base
+from src.services.repository.sqlalchemy.session import get_db
+from src.services.web_apps.base import api_router
 from tests.utils.users import authentication_token_from_email
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

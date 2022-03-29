@@ -5,14 +5,14 @@ from fastapi.responses import HTMLResponse
 from fastapi.security.utils import get_authorization_scheme_param
 
 from config.config import templates
-from src.core.apis.route_login import get_current_user_from_token
-from src.core.repository.models.publication import ContentLevel
-from src.core.repository.models.users import User
-from src.core.repository.sqlalchemy.publications.publication import \
+from src.services.apis.route_login import get_current_user_from_token
+from src.services.repository.models.publication import ContentLevel
+from src.services.repository.models.users import User
+from src.services.repository.sqlalchemy.publications.publication import \
     SqlAlchemyPublicationRepository
-from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.schemas.publications import PublicationCreate
-from src.core.web_apps.publication.forms import PublicationCreateForm
+from src.services.repository.sqlalchemy.session import SessionMakerWrapper
+from src.services.schemas.publications import PublicationCreate
+from src.services.web_apps.publication.forms import PublicationCreateForm
 
 router = APIRouter()
 
@@ -40,14 +40,12 @@ async def create_publication(request: Request) -> 201:
         await form.load_data()
 
         if form.is_valid():
-
             try:
                 token = request.cookies.get("access_token")
                 scheme, param = get_authorization_scheme_param(
                     token
                 )  # scheme will hold "Bearer" and param will hold actual token value
                 current_user: User = get_current_user_from_token(token=param)
-
                 publication = PublicationCreate(**form.__dict__)
                 repository = SqlAlchemyPublicationRepository(session)
 

@@ -1,8 +1,8 @@
 from config.config import app
-from src.core.apis.base import api_router as api
-from src.core.repository.sqlalchemy.base_class import Base
-from src.core.repository.sqlalchemy.session import engine
-from src.core.web_apps.base import api_router
+from src.services.apis.base import api_router as api
+from src.services.repository.sqlalchemy.base_class import Base
+from src.services.repository.sqlalchemy.session import engine
+from src.services.web_apps.base import api_router
 
 
 def create_tables():

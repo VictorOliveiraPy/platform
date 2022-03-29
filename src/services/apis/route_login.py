@@ -7,9 +7,9 @@ from jose import JWTError, jwt
 from config.config import settings
 from config.hashing import Hasher
 from config.security import create_access_token
-from src.core.apis.utils import OAuth2PasswordBearerWithCookie
-from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.login import \
+from src.services.apis.utils import OAuth2PasswordBearerWithCookie
+from src.services.repository.sqlalchemy.session import SessionMakerWrapper
+from src.services.repository.sqlalchemy.users.login import \
     SqlAlchemyPublicationRepository
 
 router = APIRouter()

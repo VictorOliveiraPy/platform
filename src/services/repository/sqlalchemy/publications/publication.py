@@ -2,10 +2,10 @@ from abc import ABC
 
 from sqlalchemy.orm import Session
 
-from src.core.repository.models.publication import Publication
-from src.core.repository.sqlalchemy.publications.abstract import \
+from src.services.repository.models.publication import Publication
+from src.services.repository.sqlalchemy.publications.abstract import \
     AbstractRepository
-from src.core.schemas.publications import PublicationCreate
+from src.services.schemas.publications import PublicationCreate
 
 
 class SqlAlchemyPublicationRepository(AbstractRepository, ABC):

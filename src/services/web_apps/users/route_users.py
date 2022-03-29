@@ -2,11 +2,11 @@ from fastapi import APIRouter, Request, responses, status
 from sqlalchemy.exc import IntegrityError
 
 from config.config import templates
-from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.repository.sqlalchemy.users.users import \
+from src.services.repository.sqlalchemy.session import SessionMakerWrapper
+from src.services.repository.sqlalchemy.users.users import \
     SqlAlchemyPublicationRepositoryUsers
-from src.core.schemas.users import UserCreate
-from src.core.web_apps.users.forms import UserCreateForm
+from src.services.schemas.users import UserCreate
+from src.services.web_apps.users.forms import UserCreateForm
 
 router = APIRouter(include_in_schema=False)
 

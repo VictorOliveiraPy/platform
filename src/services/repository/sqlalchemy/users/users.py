@@ -1,10 +1,10 @@
 from abc import ABC
 
 from config.hashing import Hasher
-from src.core.repository.models.users import User
-from src.core.repository.sqlalchemy.users.abstract import \
+from src.services.repository.models.users import User
+from src.services.repository.sqlalchemy.users.abstract import \
     AbstractRepositoryUser
-from src.core.schemas.users import UserCreate
+from src.services.schemas.users import UserCreate
 
 
 class SqlAlchemyPublicationRepositoryUsers(AbstractRepositoryUser, ABC):

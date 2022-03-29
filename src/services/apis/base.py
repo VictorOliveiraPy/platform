@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from src.core.apis import route_login
+from src.services.apis import route_login
 
 api_router = APIRouter()
 

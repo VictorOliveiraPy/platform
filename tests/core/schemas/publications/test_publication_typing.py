@@ -1,4 +1,4 @@
-from src.core.schemas.publications import PublicationCreate
+from src.services.schemas.publications import PublicationCreate
 
 
 class TestTypingData:

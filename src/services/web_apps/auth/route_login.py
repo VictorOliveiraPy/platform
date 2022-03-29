@@ -1,14 +1,15 @@
 from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import HTMLResponse
 
 from config.config import templates
-from src.core.apis.route_login import login_for_access_token
-from src.core.repository.sqlalchemy.session import SessionMakerWrapper
-from src.core.web_apps.auth.forms import LoginForm
+from src.services.apis.route_login import login_for_access_token
+from src.services.repository.sqlalchemy.session import SessionMakerWrapper
+from src.services.web_apps.auth.forms import LoginForm
 
-router = APIRouter(include_in_schema=False)
+router = APIRouter()
 
 
-@router.get("/login/")
+@router.get("/login/", response_class=HTMLResponse)
 def login(request: Request):
     return templates.TemplateResponse("auth/login.html", {"request": request})
 

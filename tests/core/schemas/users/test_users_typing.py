@@ -1,4 +1,4 @@
-from src.core.schemas.users import UserCreate
+from src.services.schemas.users import UserCreate
 
 
 class TestTypingData:

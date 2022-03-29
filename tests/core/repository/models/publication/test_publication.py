@@ -1,4 +1,4 @@
-from src.core.repository.models.publication import Publication
+from src.services.repository.models.publication import Publication
 
 
 class TestPublicationattributes:

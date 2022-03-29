@@ -5,9 +5,9 @@ from _pytest.tmpdir import get_user
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from src.core.repository.sqlalchemy.users.users import \
+from src.services.repository.sqlalchemy.users.users import \
     SqlAlchemyPublicationRepositoryUsers
-from src.core.schemas.users import UserCreate
+from src.services.schemas.users import UserCreate
 
 
 def random_lower_string() -> str:

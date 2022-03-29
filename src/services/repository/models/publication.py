@@ -3,7 +3,7 @@ from enum import auto
 from fastapi_utils.enums import StrEnum
 from sqlalchemy import Boolean, Column, Date, Enum, ForeignKey, Integer, String
 
-from src.core.repository.sqlalchemy.base_class import Base
+from src.services.repository.sqlalchemy.base_class import Base
 
 
 class ContentLevel(StrEnum):

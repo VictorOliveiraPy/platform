@@ -1,5 +1,5 @@
-from src.core.repository.models.users import User
-from src.core.repository.sqlalchemy.users.abstract import AbstractRepository
+from src.services.repository.models.users import User
+from src.services.repository.sqlalchemy.users.abstract import AbstractRepository
 
 
 class SqlAlchemyPublicationRepository(AbstractRepository):

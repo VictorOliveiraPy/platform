@@ -1,4 +1,4 @@
-from src.core.repository.models.users import User
+from src.services.repository.models.users import User
 
 
 class TestUserAttributes:
