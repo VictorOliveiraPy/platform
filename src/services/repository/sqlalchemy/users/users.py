@@ -1,6 +1,6 @@
 from abc import ABC
 
-from config.hashing import Hasher
+from src.config.hashing import Hasher
 from src.services.repository.models.users import User
 from src.services.repository.sqlalchemy.users.abstract import \
     AbstractRepositoryUser

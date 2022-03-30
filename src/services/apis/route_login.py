@@ -4,9 +4,9 @@ from fastapi import APIRouter, Depends, HTTPException, Response, status
 from fastapi.security import OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 
-from config.config import settings
-from config.hashing import Hasher
-from config.security import create_access_token
+from src.config.config import settings
+from src.config.hashing import Hasher
+from src.config.security import create_access_token
 from src.services.apis.utils import OAuth2PasswordBearerWithCookie
 from src.services.repository.sqlalchemy.session import SessionMakerWrapper
 from src.services.repository.sqlalchemy.users.login import \

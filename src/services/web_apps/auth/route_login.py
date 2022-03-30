@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse
 
-from config.config import templates
+from src.config.config import templates
 from src.services.apis.route_login import login_for_access_token
 from src.services.repository.sqlalchemy.session import SessionMakerWrapper
 from src.services.web_apps.auth.forms import LoginForm

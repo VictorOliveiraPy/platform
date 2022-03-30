@@ -2,7 +2,7 @@ from src.services.schemas.users import UserCreate
 
 
 class TestTypingData:
-    def test_typing_users_schemas(self):
+    def test_passed_data_types(self):
         user = UserCreate(
             username="str",
             email="test@email.com",

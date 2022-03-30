@@ -44,13 +44,3 @@ def update_publication_by_id(
     existing_publication.update(publication.__dict__)
     db.commit()
     return 1
-
-
-def delete_publication_by_id(id: int, db: Session, owner_id: int):
-    existing_job = db.query(Publication).filter(Publication.id == id)
-    if not existing_job.first():
-        return 0
-
-    existing_job.delete(synchronize_session=False)
-    db.commit()
-    return 1

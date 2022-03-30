@@ -1,4 +1,4 @@
-from config.config import app
+from src.config.config import app
 from src.services.apis.base import api_router as api
 from src.services.repository.sqlalchemy.base_class import Base
 from src.services.repository.sqlalchemy.session import engine

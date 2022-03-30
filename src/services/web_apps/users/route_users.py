@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request, responses, status
 from sqlalchemy.exc import IntegrityError
 
-from config.config import templates
+from src.config.config import templates
 from src.services.repository.sqlalchemy.session import SessionMakerWrapper
 from src.services.repository.sqlalchemy.users.users import \
     SqlAlchemyPublicationRepositoryUsers

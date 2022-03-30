@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, Request, status
 from fastapi.responses import HTMLResponse
 from fastapi.security.utils import get_authorization_scheme_param
 
-from config.config import templates
+from src.config.config import templates
 from src.services.apis.route_login import get_current_user_from_token
 from src.services.repository.models.publication import ContentLevel
 from src.services.repository.models.users import User

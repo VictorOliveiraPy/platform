@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 
-from config.config import settings
+from src.config.config import settings
 from src.services.repository.sqlalchemy.base_class import Base
 from src.services.repository.sqlalchemy.session import get_db
 from src.services.web_apps.base import api_router
