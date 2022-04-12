@@ -19,6 +19,6 @@ class Publication(Base):
     content_url = Column(String, nullable=False)
     description = Column(String)
     date_posted = Column(Date)
-    is_active = Column(Boolean(), default=True)
+    is_active = Column(Boolean(), default=False)
     content_level = Column(Enum(ContentLevel))
     owner_id = Column(Integer, ForeignKey("user.id"))
