@@ -27,6 +27,7 @@ class SqlAlchemyPublicationRepository(AbstractRepository, ABC):
 
     def post(self, publication: PublicationCreate, owner_id) -> PublicationCreate:
         publication = Publication(**publication.dict(), owner_id=owner_id)
+
         self.session.add(publication)
         self.session.commit()
         self.session.refresh(publication)
@@ -34,9 +35,9 @@ class SqlAlchemyPublicationRepository(AbstractRepository, ABC):
 
 
 def update_publication_by_id(
-        id: int, publication: PublicationCreate, db: Session, owner_id: int
+        id_: int, publication: PublicationCreate, db: Session, owner_id: int
 ):
-    existing_publication = db.query(Publication).filter(Publication.id == id)
+    existing_publication = db.query(Publication).filter(Publication.id == id_)
     if not existing_publication.first():
         return 0
 
